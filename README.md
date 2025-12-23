@@ -1,11 +1,3 @@
-Perfect, I’ve gone through your **project report content** 👍
-Here’s a **clean, professional GitHub README.md** you can directly add to your repository.
-It’s **project-oriented**, not academic-heavy, and suitable for **GitHub, recruiters, and evaluators**.
-
-You can **copy–paste this as `README.md`** 👇
-
----
-
 # 🗂️ Blockchain-Based eVault for Legal Records
 
 A decentralized and secure system for storing, managing, and verifying legal documents using **Blockchain technology** and **IPFS (InterPlanetary File System)**. This project eliminates document tampering, unauthorized access, and dependency on centralized authorities in legal record management.
@@ -132,8 +124,13 @@ This project is inspired by and builds upon existing research in blockchain, IPF
 ---
 
 ## 🏫 Academic Context
+👩‍💻 Author
 
-* **Project Type:** Mini Project (Semester VI)
+Sunidhi Pal
+Third Year Computer Engineering
+Fr. Conceicao Rodrigues College of Engineering & Technology
+
+* **Project Type:** Mini Project 
 * **Department:** Computer Engineering
 * **Institution:** Fr. Conceicao Rodrigues College of Engineering & Technology
 * **Academic Year:** 2024–2025

@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="eVault Dashboard - Manage your documents securely" />
+    <meta name="author" content="Your name" />
+    <!-- OG Meta Tags to improve the way the post looks when you share the page on Facebook, Twitter, LinkedIn -->
+    <meta property="og:site_name" content="OrioChain" />
+    <meta property="og:site" content="oriochain.com" />
+    <meta property="og:title" content="eVault Dashboard" />
+    <meta property="og:description" content="Secure management of your blockchain documents" />
+    <meta property="og:image" content="https://blockhcain-project-ali.on.drv.tw/DevAli/assets/images/home5.jpg" />
+    <meta property="og:url" content="#ABOUT" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Webpage Title -->
+    <title>Dashboard - eVault</title>
+    <link rel="stylesheet" href="./css/loader.css">
+    <link href="./css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />    
+    <link href="./css/aos.min.css" rel="stylesheet" />
+    <link href="./css/main.css" rel="stylesheet" />
+    <!-- Favicon -->
+    <link rel="icon" href="./assets/images/icon.png" />
+    
+    <style>
+        body {
+            background-color: #0e0e0e;
+            color: #fff;
+        }
+        
+        .dashboard-container {
+            padding: 30px 0;
+        }
+        
+        .dashboard-header {
+            margin-bottom: 30px;
+        }
+        
+        .dashboard-card {
+            background-color: #1a1a1a;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-card {
+            background-color: #1a1a1a;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+        }
+        
+        .stat-icon {
+            background-color: rgba(0, 179, 255, 0.1);
+            color: #00b3ff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 20px;
+        }
+        
+        .stat-info h3 {
+            font-size: 24px;
+            margin-bottom: 0;
+        }
+        
+        .stat-info p {
+            color: #aaa;
+            margin-bottom: 0;
+            font-size: 14px;
+        }
+        
+        .activity-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 12px 0;
+            border-bottom: 1px solid #2a2a2a;
+        }
+        
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+        
+        .activity-icon {
+            background-color: rgba(0, 179, 255, 0.1);
+            color: #00b3ff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 16px;
+        }
+        
+        .activity-details h4 {
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+        
+        .activity-details p {
+            color: #aaa;
+            margin-bottom: 0;
+            font-size: 14px;
+        }
+        
+        .activity-time {
+            color: #666;
+            font-size: 12px;
+        }
+        
+        .doc-table {
+            width: 100%;
+        }
+        
+        .doc-table th {
+            padding: 12px 15px;
+            border-bottom: 1px solid #2a2a2a;
+            color: #aaa;
+            font-weight: 500;
+            text-align: left;
+        }
+        
+        .doc-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #2a2a2a;
+            vertical-align: middle;
+        }
+        
+        .doc-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .doc-status {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .status-verified {
+            background-color: rgba(46, 213, 115, 0.1);
+            color: #2ed573;
+        }
+        
+        .status-pending {
+            background-color: rgba(255, 168, 0, 0.1);
+            color: #ffa800;
+        }
+        
+        .doc-actions a {
+            color: #aaa;
+            margin-right: 10px;
+            font-size: 14px;
+        }
+        
+        .doc-actions a:hover {
+            color: #00b3ff;
+        }
+        
+        .user-welcome {
+            display: flex;
+            align-items: center;
+        }
+        
+        .user-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #2a2a2a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+        
+        .sidebar {
+            background-color: #1a1a1a;
+            height: 100%;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        
+        .sidebar-link {
+            display: block;
+            padding: 12px 15px;
+            color: #aaa;
+            border-radius: 4px;
+            margin-bottom: 5px;
+            text-decoration: none;
+        }
+        
+        .sidebar-link:hover, .sidebar-link.active {
+            background-color: #252525;
+            color: #00b3ff;
+        }
+        
+        .sidebar-link i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+    </style>
+    <script>
+    // Add this to your app.js file
+    const supabaseUrl = 'https://lugeqqhmxgvfcikxrxps.supabase.co'
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx1Z2VxcWhteGd2ZmNpa3hyeHBzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQxMjU1OTAsImV4cCI6MjA1OTcwMTU5MH0.jVQ-Kqs_DnUgE0IgBebaD-F3YIvwozV_Y3xjUypSE-I'
+    const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+    
+    // Check if user is logged in on page load
+    async function checkUserSession() {
+      const { data: { user }, error } = await supabase.auth.getUser();
+      
+      if (error || !user) {
+        // Redirect to login page if no user is logged in
+        window.location.href = 'login.html';
+        return null;
+      }
+      
+      return user;
+    }
+    
+    // Update UI with user information
+    async function updateUserInterface() {
+      const user = await checkUserSession();
+      if (!user) return;
+      
+      // Update welcome message with user's email or name
+      const displayName = user.user_metadata?.full_name || user.email;
+      document.querySelector('.user-welcome h2').textContent = `Welcome, ${displayName}`;
+      
+      // Load user's documents and activities
+      loadUserDocuments(user.id);
+      loadUserActivities(user.id);
+      loadUserStats(user.id);
+    }
+    
+    // Call this when the page loads
+    document.addEventListener('DOMContentLoaded', updateUserInterface);
+    </script>
+  </head>
+  <body>
+    <!--NavBar Start-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark py-3 navbar-dark">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <i class="fa-solid fa-dragon home_text"></i>
+          <span class="home_text">e</span>Vault
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="upload.html">Upload</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="delete.html">Delete</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="edit.html">Edit</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="document.html">Document</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="dashboard.html">Dashboard</a>
+            </li>
+          </ul>
+          <div class="d-flex">
+            <form class="d-flex me-3">
+              <input class="form-control me-2 bg-dark text-light" type="search" placeholder="Search Documents..." aria-label="Search">
+              <span class="position-absolute" style="right: 110px; top: 18px; color: #aaa;">
+                <i class="fas fa-search"></i>
+              </span>
+            </form>
+            <button id="logoutBtn" class="btn btn-outline-danger">Logout</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Dashboard Section -->
+    <div class="container dashboard-container">
+      <div class="dashboard-header">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <div class="user-welcome">
+              <div class="user-avatar">
+                <i class="fas fa-user"></i>
+              </div>
+              <div>
+                <h2>Welcome, User</h2>
+                <p>Here's what's happening with your documents today</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 d-flex justify-content-md-end mt-3 mt-md-0">
+            <a href="upload.html" class="btn btn-primary me-2"><i class="fas fa-upload me-1"></i> Upload Document</a>
+            <a href="verify.html" class="btn btn-success"><i class="fas fa-check-circle me-1"></i> Verify Document</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row">
+        <!-- Sidebar -->
+        <div class="col-lg-3 mb-4">
+          <div class="sidebar">
+            <a href="#" class="sidebar-link active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a href="#" class="sidebar-link"><i class="fas fa-file-alt"></i> My Documents</a>
+            <a href="#" class="sidebar-link"><i class="fas fa-history"></i> History</a>
+            <a href="#" class="sidebar-link"><i class="fas fa-share-alt"></i> Shared With Me</a>
+            <a href="#" class="sidebar-link"><i class="fas fa-cog"></i> Settings</a>
+            <a href="#" class="sidebar-link"><i class="fas fa-bell"></i> Notifications</a>
+            <a href="#" class="sidebar-link"><i class="fas fa-question-circle"></i> Help & Support</a>
+          </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="col-lg-9">
+          <!-- Stats Row -->
+          <div class="row">
+            <div class="col-md-4">
+              <div class="stat-card">
+                <div class="stat-icon">
+                  <i class="fas fa-file-alt"></i>
+                </div>
+                <div class="stat-info">
+                  <h3>28</h3>
+                  <p>Total Documents</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-md-4">
+              <div class="stat-card">
+                <div class="stat-icon">
+                  <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="stat-info">
+                  <h3>23</h3>
+                  <p>Verified Documents</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-md-4">
+              <div class="stat-card">
+                <div class="stat-icon">
+                  <i class="fas fa-clock"></i>
+                </div>
+                <div class="stat-info">
+                  <h3>5</h3>
+                  <p>Pending Verifications</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Recent Documents -->
+          <div class="dashboard-card">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <h3>Recent Documents</h3>
+              <a href="#" class="text-info">View All</a>
+            </div>
+            
+            <div class="table-responsive">
+              <table class="doc-table">
+                <thead>
+                  <tr>
+                    <th>Document Name</th>
+                    <th>Date Added</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Tax_Statement_2024.pdf</td>
+                    <td>Apr 8, 2025</td>
+                    <td><span class="doc-status status-verified">Verified</span></td>
+                    <td class="doc-actions">
+                      <a href="#" title="View"><i class="fas fa-eye"></i></a>
+                      <a href="#" title="Download"><i class="fas fa-download"></i></a>
+                      <a href="#" title="Share"><i class="fas fa-share-alt"></i></a>
+                      <a href="#" title="Delete"><i class="fas fa-trash"></i></a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Business_License.pdf</td>
+                    <td>Apr 5, 2025</td>
+                    <td><span class="doc-status status-verified">Verified</span></td>
+                    <td class="doc-actions">
+                      <a href="#" title="View"><i class="fas fa-eye"></i></a>
+                      <a href="#" title="Download"><i class="fas fa-download"></i></a>
+                      <a href="#" title="Share"><i class="fas fa-share-alt"></i></a>
+                      <a href="#" title="Delete"><i class="fas fa-trash"></i></a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Contract_Agreement.docx</td>
+                    <td>Apr 3, 2025</td>
+                    <td><span class="doc-status status-pending">Pending</span></td>
+                    <td class="doc-actions">
+                      <a href="#" title="View"><i class="fas fa-eye"></i></a>
+                      <a href="#" title="Download"><i class="fas fa-download"></i></a>
+                      <a href="#" title="Share"><i class="fas fa-share-alt"></i></a>
+                      <a href="#" title="Delete"><i class="fas fa-trash"></i></a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Property_Deed.pdf</td>
+                    <td>Apr 1, 2025</td>
+                    <td><span class="doc-status status-verified">Verified</span></td>
+                    <td class="doc-actions">
+                      <a href="#" title="View"><i class="fas fa-eye"></i></a>
+                      <a href="#" title="Download"><i class="fas fa-download"></i></a>
+                      <a href="#" title="Share"><i class="fas fa-share-alt"></i></a>
+                      <a href="#" title="Delete"><i class="fas fa-trash"></i></a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <!-- Activity -->
+          <div class="row">
+            <div class="col-md-6">
+              <div class="dashboard-card">
+                <h3 class="mb-4">Recent Activity</h3>
+                
+                <div class="activity-item">
+                  <div class="activity-icon">
+                    <i class="fas fa-upload"></i>
+                  </div>
+                  <div class="activity-details">
+                    <h4>You uploaded a document</h4>
+                    <p>Tax_Statement_2024.pdf</p>
+                    <span class="activity-time">2 days ago</span>
+                  </div>
+                </div>
+                
+                <div class="activity-item">
+                  <div class="activity-icon">
+                    <i class="fas fa-check-circle"></i>
+                  </div>
+                  <div class="activity-details">
+                    <h4>Document verified</h4>
+                    <p>Business_License.pdf</p>
+                    <span class="activity-time">5 days ago</span>
+                  </div>
+                </div>
+                
+                <div class="activity-item">
+                  <div class="activity-icon">
+                    <i class="fas fa-share-alt"></i>
+                  </div>
+                  <div class="activity-details">
+                    <h4>You shared a document</h4>
+                    <p>Property_Deed.pdf with john@example.com</p>
+                    <span class="activity-time">1 week ago</span>
+                  </div>
+                </div>
+                
+                <div class="activity-item">
+                  <div class="activity-icon">
+                    <i class="fas fa-edit"></i>
+                  </div>
+                  <div class="activity-details">
+                    <h4>You edited document details</h4>
+                    <p>Contract_Agreement.docx</p>
+                    <span class="activity-time">1 week ago</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-md-6">
+              <div class="dashboard-card">
+                <h3 class="mb-4">Blockchain Statistics</h3>
+                
+                <div class="mb-3">
+                  <p class="mb-1">Total Transactions</p>
+                  <h4>156</h4>
+                </div>
+                
+                <div class="mb-3">
+                  <p class="mb-1">Gas Used (last 30 days)</p>
+                  <h4>0.023 ETH</h4>
+                </div>
+                
+                <div class="mb-3">
+                  <p class="mb-1">Average Verification Time</p>
+                  <h4>1.2 seconds</h4>
+                </div>
+                
+                <div class="mb-3">
+                  <p class="mb-1">Network Status</p>
+                  <h4><span class="text-success">●</span> Active</h4>
+                </div>
+                
+                <div class="text-center mt-4">
+                  <a href="#" class="btn btn-outline-info">View Blockchain Explorer</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.js"
+    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/purecounter.min.js"></script>
+    <script src="./js/aos.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.7.4/dist/web3.min.js"></script>
+    <script src="app.js"></script>
+    
+    <script>
+      // Logout button functionality
+      document.getElementById("logoutBtn").addEventListener("click", function() {
+        // In a real application, you would clear session data or tokens
+        // For now, just redirect to index page
+        window.location.href = "index.html";
+      });
+    </script

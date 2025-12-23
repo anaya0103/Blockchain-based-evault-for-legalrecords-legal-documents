@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="eVault - Blockchain-based document verification and storage" />
+    <meta name="author" content="eVault Team" />
+    <!-- OG Meta Tags to improve the way the post looks when you share the page on social media -->
+    <meta property="og:site_name" content="eVault" />
+    <!-- website name -->
+    <meta property="og:site" content="evault.com" />
+    <!-- website link -->
+    <meta property="og:title" content="eVault - Secure Document Verification" />
+    <!-- title shown in the actual shared post -->
+    <meta property="og:description" content="eVault is a blockchain platform for institutions to verify the authenticity of documents online easily and safely." />
+    <!-- description shown in the actual shared post -->
+    <meta property="og:image" content="https://blockhcain-project-ali.on.drv.tw/DevAli/assets/images/home5.jpg" />
+    <!-- image link, make sure it's jpg -->
+    <meta property="og:url" content="#ABOUT" />
+    <!-- where do you want your post to link to -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <!-- to have large image post format in Twitter -->
+
+    <!-- Webpage Title -->
+    <title>eVault - Blockchain Document Verification</title>
+    <link rel="stylesheet" href="./css/loader.css">
+    <link href="./css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />    
+    <link href="./css/aos.min.css" rel="stylesheet" />
+    <link href="./css/main.css" rel="stylesheet" />
+    <!-- Favicon -->
+    <link rel="icon" href="./assets/images/icon.png" />
+    
+    <!-- NEW: Add dark mode toggle styling -->
+    <style>
+      .dark-mode {
+        background-color: #121212;
+        color: #f1f1f1;
+      }
+      
+      .dark-mode .navbar {
+        background-color: #1e1e1e !important;
+      }
+      
+      .dark-mode .information {
+        background-color: #1e1e1e;
+      }
+      
+      .theme-toggle {
+        cursor: pointer;
+        margin-right: 15px;
+        font-size: 1.2rem;
+      }
+      
+      /* NEW: Search box styling */
+      .search-container {
+        position: relative;
+        margin-right: 15px;
+      }
+      
+      .search-container input {
+        padding: 8px 15px;
+        border-radius: 20px;
+        border: 1px solid #ccc;
+        background-color: transparent;
+        transition: all 0.3s;
+        width: 200px;
+      }
+      
+      .dark-mode .search-container input {
+        border-color: #444;
+        color: white;
+      }
+      
+      /* NEW: Notification badge */
+      .notification-badge {
+        position: relative;
+        cursor: pointer;
+        margin-right: 20px;
+      }
+      
+      .badge {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        padding: 3px 6px;
+        border-radius: 50%;
+        background: red;
+        color: white;
+        font-size: 10px;
+      }
+      
+      /* NEW: Dashboard card styling */
+      .dashboard-section {
+        padding: 60px 0;
+      }
+      
+      .stat-card {
+        background: linear-gradient(45deg, #3a7bd5, #00d2ff);
+        border-radius: 10px;
+        padding: 20px;
+        color: white;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+        height: 100%;
+      }
+      
+      .stat-card:hover {
+        transform: translateY(-5px);
+      }
+      
+      .stat-card i {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+      }
+      
+      .stat-card h3 {
+        font-size: 1.8rem;
+        margin-bottom: 5px;
+      }
+      
+      .stat-card p {
+        opacity: 0.8;
+      }
+      
+      .stat-card.purple {
+        background: linear-gradient(45deg, #654ea3, #da98ff);
+      }
+      
+      .stat-card.orange {
+        background: linear-gradient(45deg, #ff8008, #ffc837);
+      }
+      
+      .stat-card.green {
+        background: linear-gradient(45deg, #11998e, #38ef7d);
+      }
+      
+      /* NEW: Progress tracker */
+      .progress-tracker {
+        margin-top: 40px;
+      }
+      
+      .progress-tracker .progress {
+        height: 10px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+      }
+      
+      /* NEW: Footer styling */
+      .footer {
+        padding: 60px 0 30px;
+        background-color: #0f0f0f;
+        color: #fff;
+      }
+      
+      .footer h5 {
+        color: #fff;
+        margin-bottom: 20px;
+        font-weight: 600;
+      }
+      
+      .footer-list {
+        list-style: none;
+        padding-left: 0;
+      }
+      
+      .footer-list li {
+        margin-bottom: 10px;
+      }
+      
+      .footer-list a {
+        color: #ccc;
+        text-decoration: none;
+        transition: all 0.3s;
+      }
+      
+      .footer-list a:hover {
+        color: #fff;
+        text-decoration: none;
+        padding-left: 5px;
+      }
+      
+      .social-icons a {
+        display: inline-block;
+        margin-right: 15px;
+        color: #fff;
+        font-size: 18px;
+        transition: all 0.3s;
+      }
+      
+      .social-icons a:hover {
+        transform: translateY(-3px);
+        color: #3a7bd5;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  </head>
+  <body>
+    <!-- <div class="loader-wraper">
+      <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    </div> -->
+  <!--NavBar Start-->
+       <nav class="navbar navbar-expand-lg navbar-light bg-light py-3 navbar-dark">
+        <div class="container">
+          <a class="navbar-brand" href="index.html">
+            <i class="fa-solid fa-dragon home_text"></i>
+            <span class="home_text">e</span>Vault
+            </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="upload.html">Upload</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="delete.html">Delete</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="edit.html">Edit</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="document.html">Document</a>
+                </li>
+                <!-- NEW: Dashboard link -->
+                <li class="nav-item">
+                  <a class="nav-link" href="dashboard.html">Dashboard</a>
+                </li>
+              </ul>
+              <div class="d-flex align-items-center">
+                <!-- NEW: Dark mode toggle -->
+                <div class="theme-toggle" id="themeToggle">
+                  <i class="fas fa-moon"></i>
+                </div>
+
+                <!-- NEW: Search box -->
+                <div class="search-container">
+                  <input type="text" placeholder="Search documents..." id="searchBox">
+                </div>
+                
+                <!-- NEW: Notification bell with badge -->
+                <div class="user-profile ms-3" id="userProfile" style="display: none;">
+                  <span id="userName" class="fw-bold text-white"></span>
+                </div>
+                
+                  <span class="badge">3</span>
+                </div>
+                
+                <!-- Login button (hidden initially) -->
+                <button id="loginBtn" class="btn btn-outline-success" style="display: none;">Login</button>
+                
+                <!-- Logout button (hidden initially) -->
+                <button id="logoutBtn" class="btn btn-outline-danger" style="display: none;">Logout</button>
+                
+                <!-- NEW: User profile icon -->
+                <div class="user-profile ms-3">
+                  <i class="fas fa-user-circle fa-lg"></i>
+                </div>
+            </div>
+          </div>
+        </div>
+        </nav>
+
+    <!-- Home -->
+    <section class="home py-5 d-flex align-items-center" id="header">
+      <video autoplay muted loop id="myVideo">
+        <source src="./files/earth.mp4" type="video/mp4">
+      </video>
+      <div class="container text text-light py-5" data-aos="fade-right">
+        <h1 class="headline text">
+          Build <span class="text-info">trust</span>  <br>
+          into your Organization
+        </h1>
+        <p class="para py-3">
+          An innovative blockchain solution for secure, transparent, and accessible legal records management.
+        </p>
+
+        <div class="my-3">
+          <a class="btn bg-danger text-white me-2" href="verify.html">Verify Document</a>
+          <!-- NEW: Button for instant document scanning -->
+          <a class="btn btn-primary" href="#" id="scanDocBtn"><i class="fas fa-camera me-1"></i> Scan Document</a>
+        </div>
+        
+      </div>
+      <!-- end of container -->
+    </section>
+    <!-- end of home -->
+
+    <!-- Information -->
+    <section class="information">
+      <div class="container-fluid">
+        <div class="row text-light">
+          <div class="col-lg-4 text-center p-5" data-aos="zoom-in">
+            <img src="files/undraw_investment_data_re_sh9x.svg" width="150">   
+            <h4 class="py-3">Less Cost</h4>
+            <p class="para-light">
+              with eVault uploading any document costs only <span class="text-warning"> 0.01 &dollar; 😮</span>
+              so you can upload without worrying about the operation cost
+            </p>
+          </div>
+          <div class="col-lg-4 text-center p-5" data-aos="zoom-in">
+            <img src="files/undraw_time_management_re_tk5w.svg" width="150">   
+            <h4 class="py-3">Fast Process</h4>
+            <p class="para-light">
+              Verifying certificates takes just <span class="text-warning"> 1 Second 😳 </span>
+            </p>
+          </div>
+          <div class="col-lg-4 text-center p-5" data-aos="zoom-in">
+            <img src="files/securefiles.svg" width="150">   
+            <h4 class="py-3">Secure</h4>
+            <p class="para-light">
+              100% Secure & Transparent all operations With Blockchain Technology 🔒
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- end of container -->
+    </section>
+    <!-- end of information -->
+
+    <!-- NEW: Dashboard Preview Section -->
+    <section class="dashboard-section bg-light py-5">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2>Document Analytics Dashboard</h2>
+          <p class="text-muted">Track and manage all your documents with our powerful analytics</p>
+        </div>
+        
+        <div class="row g-4">
+          <div class="col-md-3">
+            <div class="stat-card">
+              <i class="fas fa-file-alt"></i>
+              <h3>127</h3>
+              <p>Documents Stored</p>
+            </div>
+          </div>
+          
+          <div class="col-md-3">
+            <div class="stat-card purple">
+              <i class="fas fa-check-circle"></i>
+              <h3>96</h3>
+              <p>Verifications</p>
+            </div>
+          </div>
+          
+          <div class="col-md-3">
+            <div class="stat-card orange">
+              <i class="fas fa-users"></i>
+              <h3>42</h3>
+              <p>Users</p>
+            </div>
+          </div>
+          
+          <div class="col-md-3">
+            <div class="stat-card green">
+              <i class="fas fa-bolt"></i>
+              <h3>0.5s</h3>
+              <p>Avg. Verification Time</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="progress-tracker">
+          <h4>Storage Usage</h4>
+          <div class="progress">
+            <div class="progress-bar bg-success" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">65%</div>
+          </div>
+          <div class="d-flex justify-content-between">
+            <small>0 GB</small>
+            <small>10 GB</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW: Features Section -->
+    <section class="features py-5 bg-white">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2>Powerful Features</h2>
+          <p class="text-muted">Everything you need for secure document management</p>
+        </div>
+        
+        <div class="row g-4">
+          <div class="col-md-4 text-center" data-aos="fade-up">
+            <div class="p-4">
+              <i class="fas fa-fingerprint fa-3x text-primary mb-3"></i>
+              <h4>Biometric Verification</h4>
+              <p>Use fingerprint or facial recognition to secure your documents with an extra layer of protection.</p>
+            </div>
+          </div>
+          
+          <div class="col-md-4 text-center" data-aos="fade-up" data-aos-delay="100">
+            <div class="p-4">
+              <i class="fas fa-history fa-3x text-primary mb-3"></i>
+              <h4>Version Control</h4>
+              <p>Track changes to your documents with our comprehensive version history system.</p>
+            </div>
+          </div>
+          
+          <div class="col-md-4 text-center" data-aos="fade-up" data-aos-delay="200">
+            <div class="p-4">
+              <i class="fas fa-share-alt fa-3x text-primary mb-3"></i>
+              <h4>Secure Sharing</h4>
+              <p>Share documents with controlled access and expiry dates to maintain security.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="about d-flex align-items-center text-light py-5" id="about">
+      <div class="container">
+        <div class="row d-flex align-items-center">
+          <div class="col-lg-7" data-aos="fade-right">
+            <p class="main-header-section">ABOUT US</p>
+            <h1>
+              WE ARE TOP <br />
+              
+            </h1>
+            <p class="py-2 para-light">
+              Our goal is to address challenges in legal records management by creating a blockchain-based eVault platform. It ensures secure access, transparency, and efficiency for all stakeholders.
+            </p>
+
+            <!-- NEW: Added testimonial -->
+            <div class="testimonial bg-dark p-3 rounded my-4">
+              <p class="fst-italic mb-1">"eVault revolutionized how we manage our legal documents. The verification process is seamless and secure."</p>
+              <small>— John Smith, Legal Director at XYZ Corp</small>
+            </div>
+
+            <div class="my-3">
+              <a class="btn bg-white" href="#your-link">Learn More</a>
+            </div>
+          </div>
+          <div class="col-lg-5 text-center py-4 py-sm-0" data-aos="fade-down">
+            <img
+              class="img-fluid"
+              src="./assets/images/about.jpg"
+              alt="about"
+            />
+          </div>
+        </div>
+        <!-- end of row -->
+      </div>
+      <!-- end of container -->
+    </section>
+    <!-- end of about -->
+    
+    <!-- NEW: Call-to-action section -->
+    <section class="cta py-5 text-center text-white" style="background: linear-gradient(90deg, #3a7bd5, #00d2ff);">
+      <div class="container py-4">
+        <h2 class="mb-3">Ready to secure your documents?</h2>
+        <p class="mb-4">Join thousands of organizations that trust eVault for their document verification needs.</p>
+        <button class="btn btn-outline-light btn-lg px-4">Get Started Today</button>
+      </div>
+    </section>
+  
+    <!-- NEW: Footer section -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 mb-4 mb-lg-0">
+            <h5>About eVault</h5>
+            <p>A blockchain-based platform that revolutionizes how organizations verify and store important documents.</p>
+            <div class="social-icons mt-4">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+          
+          <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+            <h5>Quick Links</h5>
+            <ul class="footer-list">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="#">Pricing</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+          
+          <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+            <h5>Services</h5>
+            <ul class="footer-list">
+              <li><a href="#">Document Verification</a></li>
+              <li><a href="#">Secure Storage</a></li>
+              <li><a href="#">Access Control</a></li>
+              <li><a href="#">Audit Trail</a></li>
+              <li><a href="#">Enterprise Solutions</a></li>
+            </ul>
+          </div>
+          
+          <div class="col-lg-4">
+            <h5>Newsletter</h5>
+            <p>Subscribe to our newsletter for the latest updates and news.</p>
+            <div class="input-group mb-3">
+              <input type="email" class="form-control" placeholder="Your email" aria-label="Your email">
+              <button class="btn btn-primary" type="button">Subscribe</button>
+            </div>
+          </div>
+        </div>
+        
+        <hr class="my-4" style="background-color: #444;">
+        
+        <div class="row">
+          <div class="col-md-6 text-center text-md-start">
+            <p class="mb-0">&copy; 2025 eVault. All rights reserved.</p>
+          </div>
+          <div class="col-md-6 text-center text-md-end">
+            <a href="#" class="text-white me-3">Privacy Policy</a>
+            <a href="#" class="text-white me-3">Terms of Service</a>
+            <a href="#" class="text-white">Cookies Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  
+    <div>
+      <i onclick="topFunction()" id="scroll-btn" class="fa-solid fa-angle-up"></i>
+    </div>
+    <!-- Add this right before the scroll-btn div in your HTML -->
+<!-- Chatbot Icon and Container -->
+<div class="chatbot-icon" id="chatbotIcon">
+  <i class="fas fa-comments"></i>
+</div>
+
+<div class="chatbot-container" id="chatbotContainer">
+  <div class="chat-header">
+    <h5 class="m-0">eVault Assistant</h5>
+    <i class="fas fa-times" id="closeChatbot" style="cursor: pointer;"></i>
+  </div>
+  <div class="chat-body" id="chatBody">
+    <div class="message bot-message">
+      Hello! I'm your eVault assistant. How can I help you with document verification or storage today?
+    </div>
+  </div>
+  <div class="chat-footer">
+    <input type="text" class="chat-input" id="chatInput" placeholder="Type your message...">
+    <button class="chat-send" id="sendMessage">
+      <i class="fas fa-paper-plane"></i>
+    </button>
+  </div>
+</div>
+
+<!-- Add this CSS to your style section in the head -->
+<style>
+  /* Chatbot styling */
+  .chatbot-icon {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 70px; /* Larger size */
+    height: 70px; /* Larger size */
+    background: linear-gradient(135deg, #3a7bd5, #00d2ff); /* Attractive gradient */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 30px; /* Larger icon */
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+    z-index: 1000;
+    transition: all 0.3s ease;
+    border: 3px solid white; /* Adding border */
+    animation: pulse 2s infinite; /* Adding pulsing animation */
+  }
+  
+  /* Pulsing animation */
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(58, 123, 213, 0.7);
+      transform: scale(1);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(58, 123, 213, 0);
+      transform: scale(1.05);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(58, 123, 213, 0);
+      transform: scale(1);
+    }
+  }
+  
+  /* Hover effect */
+  .chatbot-icon:hover {
+    transform: scale(1.1) rotate(5deg);
+  }
+  
+  /* For dark mode compatibility */
+  .dark-mode .chatbot-icon {
+    border: 3px solid #333;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Optional: Add a label */
+  .chatbot-icon::after {
+    content: "Chat";
+    position: absolute;
+    bottom: -25px;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 3px 10px;
+    border-radius: 10px;
+    color: #3a7bd5;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dark-mode .chatbot-icon::after {
+    background-color: rgba(30, 30, 30, 0.9);
+    color: #00d2ff;
+  }
+  
+  .chatbot-container {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 350px;
+    height: 450px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.15);
+    z-index: 999;
+    overflow: hidden;
+    display: none;
+    flex-direction: column;
+    transition: all 0.3s ease;
+  }
+  
+  .dark-mode .chatbot-container {
+    background-color: #1e1e1e;
+    color: white;
+    border: 1px solid #333;
+  }
+  
+  .chat-header {
+    background: linear-gradient(45deg, #3a7bd5, #00d2ff);
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .chat-body {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+  }
+  
+  .chat-footer {
+    padding: 10px;
+    border-top: 1px solid #eee;
+    display: flex;
+  }
+  
+  .dark-mode .chat-footer {
+    border-top: 1px solid #333;
+  }
+  
+  .chat-input {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #f5f5f5;
+  }
+  
+  .dark-mode .chat-input {
+    background-color: #333;
+    color: white;
+  }
+  
+  .chat-send {
+    border: none;
+    background-color: #3a7bd5;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  
+  .message {
+    max-width: 80%;
+    padding: 10px 15px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    clear: both;
+  }
+  
+  .bot-message {
+    background-color: #f1f1f1;
+    float: left;
+    border-bottom-left-radius: 5px;
+  }
+  
+  .dark-mode .bot-message {
+    background-color: #333;
+  }
+  
+  .user-message {
+    background-color: #3a7bd5;
+    color: white;
+    float: right;
+    border-bottom-right-radius: 5px;
+  }
+  
+  .typing-indicator {
+    display: inline-block;
+    width: 30px;
+    text-align: center;
+  }
+  
+  .typing-indicator span {
+    height: 5px;
+    width: 5px;
+    margin: 0 1px;
+    background-color: #888;
+    display: inline-block;
+    border-radius: 50%;
+    opacity: 0.4;
+    animation: typing 1s infinite;
+  }
+  
+  .typing-indicator span:nth-child(2) {
+    animation-delay: 0.15s;
+  }
+  
+  .typing-indicator span:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  
+  @keyframes typing {
+    0% {
+      transform: translateY(0px);
+      opacity: 0.4;
+    }
+    50% {
+      transform: translateY(-5px);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0px);
+      opacity: 0.4;
+    }
+  }
+</style>
+
+<!-- Add this JavaScript at the end of your script section -->
+<script type="module">
+  import { getCurrentUser, signOut } from './js/supabase.js';
+
+  document.addEventListener('DOMContentLoaded', async function () {
+    const loginBtn = document.getElementById('loginBtn');
+    const logoutBtn = document.getElementById('logoutBtn');
+    const userProfile = document.getElementById('userProfile');
+    const userNameDisplay = document.getElementById('userName');
+
+    try {
+      const user = await getCurrentUser();
+      if (user) {
+        loginBtn.style.display = 'none';
+        logoutBtn.style.display = 'inline-block';
+        userProfile.style.display = 'inline-block';
+        userNameDisplay.textContent = user.user_metadata?.username || user.email;
+      } else {
+        loginBtn.style.display = 'inline-block';
+        logoutBtn.style.display = 'none';
+        userProfile.style.display = 'none';
+      }
+    } catch (error) {
+      console.error('Auth check failed:', error);
+    }
+
+    logoutBtn.addEventListener('click', async () => {
+      await signOut();
+      window.location.reload();
+    });
+  });
+</script>
+<script type="module">
+  import { getCurrentUser, signOut } from './js/supabase.js';
+
+  document.addEventListener('DOMContentLoaded', async function () {
+    const loginBtn = document.getElementById('loginBtn');
+    const logoutBtn = document.getElementById('logoutBtn');
+    const userProfile = document.getElementById('userProfile');
+    const userNameDisplay = document.getElementById('userName');
+
+    try {
+      const user = await getCurrentUser();
+      if (user) {
+        loginBtn.style.display = 'none';
+        logoutBtn.style.display = 'inline-block';
+        userProfile.style.display = 'inline-block';
+        userNameDisplay.textContent = user.user_metadata?.username || user.email;
+      } else {
+        loginBtn.style.display = 'inline-block';
+        logoutBtn.style.display = 'none';
+        userProfile.style.display = 'none';
+      }
+    } catch (error) {
+      console.error('Auth check failed:', error);
+    }
+
+    // ✅ LOGOUT and redirect to login page
+    logoutBtn.addEventListener('click', async () => {
+      try {
+        await signOut();
+        window.location.href = 'login.html';
+      } catch (error) {
+        console.error('Logout failed:', error);
+        alert('Something went wrong while logging out.');
+      }
+    });
+  });
+</script>
+
+
+<script>
+  // CHATBOT FUNCTIONALITY
+  document.addEventListener('DOMContentLoaded', function() {
+    const chatbotIcon = document.getElementById('chatbotIcon');
+    const chatbotContainer = document.getElementById('chatbotContainer');
+    const closeChatbot = document.getElementById('closeChatbot');
+    const chatInput = document.getElementById('chatInput');
+    const sendMessage = document.getElementById('sendMessage');
+    const chatBody = document.getElementById('chatBody');
+    
+    // Toggle chatbot
+    chatbotIcon.addEventListener('click', function() {
+      chatbotContainer.style.display = chatbotContainer.style.display === 'flex' ? 'none' : 'flex';
+    });
+    
+    // Close chatbot
+    closeChatbot.addEventListener('click', function() {
+      chatbotContainer.style.display = 'none';
+    });
+    
+    // Send message function
+    function sendUserMessage() {
+      const message = chatInput.value.trim();
+      if (message !== '') {
+        // Add user message
+        const userMessageDiv = document.createElement('div');
+        userMessageDiv.className = 'message user-message';
+        userMessageDiv.textContent = message;
+        chatBody.appendChild(userMessageDiv);
+        
+        // Clear input
+        chatInput.value = '';
+        
+        // Scroll to bottom
+        chatBody.scrollTop = chatBody.scrollHeight;
+        
+        // Show typing indicator
+        const typingDiv = document.createElement('div');
+        typingDiv.className = 'message bot-message typing-indicator';
+        typingDiv.innerHTML = '<span></span><span></span><span></span>';
+        chatBody.appendChild(typingDiv);
+        
+        // Simulate bot response after 1.5 seconds
+        setTimeout(function() {
+          // Remove typing indicator
+          chatBody.removeChild(typingDiv);
+          
+          // Add bot response
+          const botMessageDiv = document.createElement('div');
+          botMessageDiv.className = 'message bot-message';
+          
+          // Simple response logic
+          if (message.toLowerCase().includes('verify') || message.toLowerCase().includes('check')) {
+            botMessageDiv.textContent = "You can verify any document by uploading it on our 'Verify Document' page or using the quick scan feature.";
+          } else if (message.toLowerCase().includes('upload') || message.toLowerCase().includes('store')) {
+            botMessageDiv.textContent = "To upload a document, go to the 'Upload' page and follow the simple instructions. Each upload costs only $0.01.";
+          } else if (message.toLowerCase().includes('blockchain') || message.toLowerCase().includes('technology')) {
+            botMessageDiv.textContent = "eVault uses blockchain technology to create immutable records of your documents, ensuring they can't be tampered with or forged.";
+          } else if (message.toLowerCase().includes('cost') || message.toLowerCase().includes('price')) {
+            botMessageDiv.textContent = "eVault is very cost-effective. Document uploads cost only $0.01 each, and verification is free!";
+          } else {
+            botMessageDiv.textContent = "Thank you for your message. How else can I help you with document verification or storage?";
+          }
+          
+          chatBody.appendChild(botMessageDiv);
+          
+          // Scroll to bottom again
+          chatBody.scrollTop = chatBody.scrollHeight;
+        }, 1500);
+      }
+    }
+    
+    // Send message when send button is clicked
+    sendMessage.addEventListener('click', sendUserMessage);
+    
+    // Send message when enter key is pressed
+    chatInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        sendUserMessage();
+      }
+    });
+  });
+</script>
+    <div><a href="mailto:support@evault.com?subject=Support Request"> 
+      <i class="mail-us fa-solid fa-headset"></i>
+    </a>
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.js"
+    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>    <!-- Bootstrap framework -->
+    <script src="./js/purecounter.min.js"></script>
+    <script src="./js/aos.js"></script>
+    <script src="./js/script.js"></script>
+    
+    <!-- Load Web3.js from CDN -->
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.7.4/dist/web3.min.js"></script>
+    
+    <!-- Load your app.js file -->  
+    <script src="app.js"></script>
+    
+    <!-- NEW: Dark mode toggle functionality -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Dark mode toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const toggleIcon = themeToggle.querySelector('i');
+        
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+          body.classList.add('dark-mode');
+          toggleIcon.classList.remove('fa-moon');
+          toggleIcon.classList.add('fa-sun');
+        }
+        
+        themeToggle.addEventListener('click', function() {
+          body.classList.toggle('dark-mode');
+          
+          if (body.classList.contains('dark-mode')) {
+            toggleIcon.classList.remove('fa-moon');
+            toggleIcon.classList.add('fa-sun');
+            localStorage.setItem('theme', 'dark');
+          } else {
+            toggleIcon.classList.remove('fa-sun');
+            toggleIcon.classList.add('fa-moon');
+            localStorage.setItem('theme', 'light');
+          }
+        });
+        
+        // Notification dropdown functionality
+        const notificationBadge = document.querySelector('.notification-badge');
+        notificationBadge.addEventListener('click', function() {
+          alert('You have 3 new notifications:\n- Document verified\n- New user joined\n- Storage quota 65% full');
+        });
+        
+        // Scan document button functionality
+        const scanDocBtn = document.getElementById('scanDocBtn');
+        scanDocBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          alert('Camera access requested. This feature allows you to scan documents directly using your device camera.');
+        });
+        
+        // Search functionality
+        const searchBox = document.getElementById('searchBox');
+        searchBox.addEventListener('keyup', function(e) {
+          if (e.key === 'Enter') {
+            alert('Searching for: ' + searchBox.value);
+          }
+        });
+      });
+    
+      import geminiChatbot from './js/gemini-chat.js';
+    
+      document.addEventListener('DOMContentLoaded', function() {
+        const chatbotIcon = document.getElementById('chatbotIcon');
+        const chatbotContainer = document.getElementById('chatbotContainer');
+        const closeChatbot = document.getElementById('closeChatbot');
+        const chatInput = document.getElementById('chatInput');
+        const sendMessage = document.getElementById('sendMessage');
+        const chatBody = document.getElementById('chatBody');
+        
+        // Toggle chatbot
+        chatbotIcon.addEventListener('click', function() {
+          chatbotContainer.style.display = chatbotContainer.style.display === 'flex' ? 'none' : 'flex';
+        });
+        
+        // Close chatbot
+        closeChatbot.addEventListener('click', function() {
+          chatbotContainer.style.display = 'none';
+        });
+        
+        // Send message function
+        async function sendUserMessage() {
+          const message = chatInput.value.trim();
+          if (message !== '') {
+            // Add user message to UI
+            const userMessageDiv = document.createElement('div');
+            userMessageDiv.className = 'message user-message';
+            userMessageDiv.textContent = message;
+            chatBody.appendChild(userMessageDiv);
+            
+            // Clear input
+            chatInput.value = '';
+            
+            // Scroll to bottom
+            chatBody.scrollTop = chatBody.scrollHeight;
+            
+            // Show typing indicator
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'message bot-message typing-indicator';
+            typingDiv.innerHTML = '<span></span><span></span><span></span>';
+            chatBody.appendChild(typingDiv);
+            
+            try {
+              // Get response from Gemini API
+              const response = await geminiChatbot.sendMessage(message);
+              
+              // Remove typing indicator
+              chatBody.removeChild(typingDiv);
+              
+              // Add bot response to UI
+              const botMessageDiv = document.createElement('div');
+              botMessageDiv.className = 'message bot-message';
+              botMessageDiv.textContent = response;
+              chatBody.appendChild(botMessageDiv);
+            } catch (error) {
+              // Remove typing indicator
+              chatBody.removeChild(typingDiv);
+              
+              // Add error message
+              const botMessageDiv = document.createElement('div');
+              botMessageDiv.className = 'message bot-message';
+              botMessageDiv.textContent = "I'm sorry, I encountered an error. Please try again later.";
+              chatBody.appendChild(botMessageDiv);
+            }
+            
+            // Scroll to bottom again
+            chatBody.scrollTop = chatBody.scrollHeight;
+          }
+        }
+        
+        // Send message when send button is clicked
+        sendMessage.addEventListener('click', sendUserMessage);
+        
+        // Send message when enter key is pressed
+        chatInput.addEventListener('keypress', function(e) {
+          if (e.key === 'Enter') {
+            sendUserMessage();
+          }
+        });
+      });
+    </script>
+    <script>
+      // index.js - Main entry point for the eVault application
+// Import the Gemini chatbot module
+import geminiChatbot from './js/gemini-chat.js';
+
+// Initialize the chatbot when the DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize the Gemini chatbot
+  geminiChatbot.init();
+  
+  // Get chatbot UI elements
+  const chatbotIcon = document.getElementById('chatbotIcon');
+  const chatbotContainer = document.getElementById('chatbotContainer');
+  const closeChatbot = document.getElementById('closeChatbot');
+  const chatInput = document.getElementById('chatInput');
+  const sendMessage = document.getElementById('sendMessage');
+  const chatBody = document.getElementById('chatBody');
+  
+  // Toggle chatbot visibility
+  chatbotIcon.addEventListener('click', function() {
+    chatbotContainer.style.display = chatbotContainer.style.display === 'flex' ? 'none' : 'flex';
+  });
+  
+  // Close chatbot
+  closeChatbot.addEventListener('click', function() {
+    chatbotContainer.style.display = 'none';
+  });
+  
+  // Send message function
+  async function sendUserMessage() {
+    const message = chatInput.value.trim();
+    if (message !== '') {
+      // Add user message to UI
+      const userMessageDiv = document.createElement('div');
+      userMessageDiv.className = 'message user-message';
+      userMessageDiv.textContent = message;
+      chatBody.appendChild(userMessageDiv);
+      
+      // Clear input
+      chatInput.value = '';
+      
+      // Scroll to bottom
+      chatBody.scrollTop = chatBody.scrollHeight;
+      
+      // Show typing indicator
+      const typingDiv = document.createElement('div');
+      typingDiv.className = 'message bot-message typing-indicator';
+      typingDiv.innerHTML = '<span></span><span></span><span></span>';
+      chatBody.appendChild(typingDiv);
+      
+      try {
+        // Process the message through Gemini chatbot
+        const response = await geminiChatbot.processMessage(message);
+        
+        // Remove typing indicator
+        chatBody.removeChild(typingDiv);
+        
+        // Add bot response to UI
+        const botMessageDiv = document.createElement('div');
+        botMessageDiv.className = 'message bot-message';
+        botMessageDiv.innerHTML = response; // Using innerHTML to render formatted markdown content
+        chatBody.appendChild(botMessageDiv);
+      } catch (error) {
+        console.error('Error processing message:', error);
+        
+        // Remove typing indicator
+        chatBody.removeChild(typingDiv);
+        
+        // Add error message
+        const botMessageDiv = document.createElement('div');
+        botMessageDiv.className = 'message bot-message';
+        botMessageDiv.textContent = "I'm sorry, I encountered an error. Please try again later.";
+        chatBody.appendChild(botMessageDiv);
+      }
+      
+      // Scroll to bottom again
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+  }
+  
+  // Send message when send button is clicked
+  sendMessage.addEventListener('click', sendUserMessage);
+  
+  // Send message when enter key is pressed
+  chatInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+      sendUserMessage();
+    }
+  });
+  
+  // Add options for quick questions
+  addQuickQuestionButtons();
+});
+
+// Function to add quick question buttons to the chatbot
+function addQuickQuestionButtons() {
+  const chatBody = document.getElementById('chatBody');
+  const quickQuestionsDiv = document.createElement('div');
+  quickQuestionsDiv.className = 'quick-questions';
+  quickQuestionsDiv.innerHTML = `
+    <p>Here are some questions you can ask:</p>
+    <button class="quick-question-btn">What are my rights as a woman in India?</button>
+    <button class="quick-question-btn">How do I get an Aadhaar card?</button>
+    <button class="quick-question-btn">What documents are needed for marriage registration?</button>
+    <button class="quick-question-btn">Show me all FAQs</button>
+  `;
+  
+  chatBody.appendChild(quickQuestionsDiv);
+  
+  // Add event listeners to quick question buttons
+  const quickQuestionBtns = document.querySelectorAll('.quick-question-btn');
+  quickQuestionBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      document.getElementById('chatInput').value = this.textContent;
+      document.getElementById('sendMessage').click();
+    });
+  });
+}
+
+// Handle dark mode toggle
+document.addEventListener('DOMContentLoaded', function() {
+  const themeToggle = document.getElementById('themeToggle');
+  const body = document.body;
+  const toggleIcon = themeToggle.querySelector('i');
+  
+  // Check for saved theme preference
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark') {
+    body.classList.add('dark-mode');
+    toggleIcon.classList.remove('fa-moon');
+    toggleIcon.classList.add('fa-sun');
+  }
+  
+  themeToggle.addEventListener('click', function() {
+    body.classList.toggle('dark-mode');
+    
+    if (body.classList.contains('dark-mode')) {
+      toggleIcon.classList.remove('fa-moon');
+      toggleIcon.classList.add('fa-sun');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      toggleIcon.classList.remove('fa-sun');
+      toggleIcon.classList.add('fa-moon');
+      localStorage.setItem('theme', 'light');
+    }
+  });
+});
+    </script>
+    
+</body>
+</html>

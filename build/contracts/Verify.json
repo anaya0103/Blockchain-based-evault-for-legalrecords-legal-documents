@@ -1,0 +1,1229 @@
+{
+  "contractName": "Verify",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "name": "documents",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "fileHash",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "fileName",
+          "type": "string"
+        },
+        {
+          "internalType": "address",
+          "name": "uploader",
+          "type": "address"
+        },
+        {
+          "internalType": "bool",
+          "name": "isVerified",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_fileHash",
+          "type": "string"
+        }
+      ],
+      "name": "verifyDocument",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"name\":\"documents\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"fileHash\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"fileName\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"uploader\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"isVerified\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"string\",\"name\":\"_fileHash\",\"type\":\"string\"}],\"name\":\"verifyDocument\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/verify.sol\":\"Verify\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/verify.sol\":{\"keccak256\":\"0x79c86056a5541a5bcd79aea1b1eee77c27cfc7bd1d0d9d166d939ae61ab20496\",\"urls\":[\"bzz-raw://42f9d91af0a1fb771e293cb37cc93758a4d495c2e3da8a650804cc476597d568\",\"dweb:/ipfs/QmZ9N36fSCGV8f2EqVHMKBXY6KNp6pGyH81EGCiD61ZHJq\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5061056e806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c8063b3dd697b1461003b578063beee5eb7146101d8575b600080fd5b6100e16004803603602081101561005157600080fd5b81019060208101813564010000000081111561006c57600080fd5b82018360208201111561007e57600080fd5b803590602001918460018302840111640100000000831117156100a057600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600092019190915250929550610280945050505050565b604080516001600160a01b03841691810191909152811515606082015260808082528551908201528451819060208083019160a084019189019080838360005b83811015610139578181015183820152602001610121565b50505050905090810190601f1680156101665780820380516001836020036101000a031916815260200191505b50838103825286518152865160209182019188019080838360005b83811015610199578181015183820152602001610181565b50505050905090810190601f1680156101c65780820380516001836020036101000a031916815260200191505b50965050505050505060405180910390f35b61027e600480360360208110156101ee57600080fd5b81019060208101813564010000000081111561020957600080fd5b82018360208201111561021b57600080fd5b8035906020019184600183028401116401000000008311171561023d57600080fd5b91908080601f0160208091040260200160405190810160405280939291908181526020018383808284376000920191909152509295506103e7945050505050565b005b805160208183018101805160008252928201938201939093209190925280546040805160026001841615610100026000190190931692909204601f81018590048502830185019091528082529192909183918301828280156103235780601f106102f857610100808354040283529160200191610323565b820191906000526020600020905b81548152906001019060200180831161030657829003601f168201915b505050505090806001018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103c15780601f10610396576101008083540402835291602001916103c1565b820191906000526020600020905b8154815290600101906020018083116103a457829003601f168201915b505050600290930154919250506001600160a01b0381169060ff600160a01b9091041684565b60006001600160a01b03166000826040518082805190602001908083835b602083106104245780518252601f199092019160209182019101610405565b51815160209384036101000a60001901801990921691161790529201948552506040519384900301909220600201546001600160a01b0316929092141591506104b69050576040805162461bcd60e51b815260206004820152601760248201527f446f63756d656e7420646f6573206e6f74206578697374000000000000000000604482015290519081900360640190fd5b60016000826040518082805190602001908083835b602083106104ea5780518252601f1990920191602091820191016104cb565b51815160209384036101000a60001901801990921691161790529201948552506040519384900301909220600201805460ff60a01b1916600160a01b941515949094029390931790925550505056fea265627a7a72315820913f5741b90931db562512ec5471ba86576a4f75c4fa08f23ebed4af8f40810964736f6c63430005100032",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100365760003560e01c8063b3dd697b1461003b578063beee5eb7146101d8575b600080fd5b6100e16004803603602081101561005157600080fd5b81019060208101813564010000000081111561006c57600080fd5b82018360208201111561007e57600080fd5b803590602001918460018302840111640100000000831117156100a057600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600092019190915250929550610280945050505050565b604080516001600160a01b03841691810191909152811515606082015260808082528551908201528451819060208083019160a084019189019080838360005b83811015610139578181015183820152602001610121565b50505050905090810190601f1680156101665780820380516001836020036101000a031916815260200191505b50838103825286518152865160209182019188019080838360005b83811015610199578181015183820152602001610181565b50505050905090810190601f1680156101c65780820380516001836020036101000a031916815260200191505b50965050505050505060405180910390f35b61027e600480360360208110156101ee57600080fd5b81019060208101813564010000000081111561020957600080fd5b82018360208201111561021b57600080fd5b8035906020019184600183028401116401000000008311171561023d57600080fd5b91908080601f0160208091040260200160405190810160405280939291908181526020018383808284376000920191909152509295506103e7945050505050565b005b805160208183018101805160008252928201938201939093209190925280546040805160026001841615610100026000190190931692909204601f81018590048502830185019091528082529192909183918301828280156103235780601f106102f857610100808354040283529160200191610323565b820191906000526020600020905b81548152906001019060200180831161030657829003601f168201915b505050505090806001018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103c15780601f10610396576101008083540402835291602001916103c1565b820191906000526020600020905b8154815290600101906020018083116103a457829003601f168201915b505050600290930154919250506001600160a01b0381169060ff600160a01b9091041684565b60006001600160a01b03166000826040518082805190602001908083835b602083106104245780518252601f199092019160209182019101610405565b51815160209384036101000a60001901801990921691161790529201948552506040519384900301909220600201546001600160a01b0316929092141591506104b69050576040805162461bcd60e51b815260206004820152601760248201527f446f63756d656e7420646f6573206e6f74206578697374000000000000000000604482015290519081900360640190fd5b60016000826040518082805190602001908083835b602083106104ea5780518252601f1990920191602091820191016104cb565b51815160209384036101000a60001901801990921691161790529201948552506040519384900301909220600201805460ff60a01b1916600160a01b941515949094029390931790925550505056fea265627a7a72315820913f5741b90931db562512ec5471ba86576a4f75c4fa08f23ebed4af8f40810964736f6c63430005100032",
+  "sourceMap": "69:510:2:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;69:510:2;;;;;;;",
+  "deployedSourceMap": "69:510:2:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;69:510:2;;;;;;;;;;;;;;;;;;;;;;;;282:44;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;282:44:2;;;;;;;;21:11:-1;5:28;;2:2;;;46:1;43;36:12;2:2;282:44:2;;35:9:-1;28:4;12:14;8:25;5:40;2:2;;;58:1;55;48:12;2:2;282:44:2;;;;;;100:9:-1;95:1;81:12;77:20;67:8;63:35;60:50;39:11;25:12;22:29;11:107;8:2;;;131:1;128;121:12;8:2;282:44:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;30:3:-1;22:6;14;1:33;99:1;81:16;;74:27;;;;-1:-1;282:44:2;;-1:-1:-1;282:44:2;;-1:-1:-1;;;;;282:44:2:i;:::-;;;;-1:-1:-1;;;;;282:44:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;8:100;33:3;30:1;27:10;8:100;;;90:11;;;84:18;71:11;;;64:39;52:2;45:10;8:100;;;12:14;282:44:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;282:44:2;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;90:11;;;84:18;71:11;;;64:39;52:2;45:10;8:100;;;12:14;282:44:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;373:203;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;373:203:2;;;;;;;;21:11:-1;5:28;;2:2;;;46:1;43;36:12;2:2;373:203:2;;35:9:-1;28:4;12:14;8:25;5:40;2:2;;;58:1;55;48:12;2:2;373:203:2;;;;;;100:9:-1;95:1;81:12;77:20;67:8;63:35;60:50;39:11;25:12;22:29;11:107;8:2;;;131:1;128;121:12;8:2;373:203:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;30:3:-1;22:6;14;1:33;99:1;81:16;;74:27;;;;-1:-1;373:203:2;;-1:-1:-1;373:203:2;;-1:-1:-1;;;;;373:203:2:i;:::-;;282:44;22:14:-1;;169:4;143:32;;;;;198:20;;282:44:2;224:31:-1;;156:18;;;283;;;273:49;;;;328:32;;;;282:44:2;;;;;;;;;;;;-1:-1:-1;;282:44:2;;;;;;;;;;;;;;;;;;;;;;;;;;273:49:-1;;282:44:2;;273:49:-1;;282:44:2;;273:49:-1;282:44:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;;282:44:2;;;;;;;-1:-1:-1;;;;;;;282:44:2;;;;-1:-1:-1;;;282:44:2;;;;;:::o;373:203::-;489:1;-1:-1:-1;;;;;448:43:2;:9;458;448:20;;;;;;;;;;;;;36:153:-1;66:2;61:3;58:11;36:153;;176:10;;164:23;;-1:-1;;139:12;;;;98:2;89:12;;;;114;36:153;;;299:10;344;;263:2;259:12;;;254:3;250:22;-1:-1;;246:30;311:9;;295:26;;;340:21;;377:20;365:33;;448:20:2;;;;;-1:-1:-1;448:20:2;;;;;;;;;;:29;;;-1:-1:-1;;;;;448:29:2;:43;;;;;;-1:-1:-1;440:79:2;;-1:-1:-1;440:79:2;;;;-1:-1:-1;;;440:79:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;564:4;530:9;540;530:20;;;;;;;;;;;;;36:153:-1;66:2;61:3;58:11;36:153;;176:10;;164:23;;-1:-1;;139:12;;;;98:2;89:12;;;;114;36:153;;;299:10;344;;263:2;259:12;;;254:3;250:22;-1:-1;;246:30;311:9;;295:26;;;340:21;;377:20;365:33;;530:20:2;;;;;-1:-1:-1;530:20:2;;;;;;;;;;:31;;:38;;-1:-1:-1;;;;530:38:2;-1:-1:-1;;;530:38:2;;;;;;;;;;;;;;-1:-1:-1;;;373:203:2:o",
+  "source": "// SPDX-License-Identifier: MIT\r\npragma solidity >=0.4.22 <0.9.0;\r\n\r\ncontract Verify {\r\n    // Define your struct and mapping for documents\r\n    struct Document {\r\n        string fileHash;\r\n        string fileName;\r\n        address uploader;\r\n        bool isVerified;\r\n    }\r\n\r\n    mapping(string => Document) public documents;\r\n\r\n    // Function to verify a document\r\n    function verifyDocument(string memory _fileHash) public {\r\n        require(documents[_fileHash].uploader != address(0), \"Document does not exist\");\r\n        documents[_fileHash].isVerified = true;\r\n    }\r\n}\r\n",
+  "sourcePath": "C:\\Users\\Lenovo\\Downloads\\block-20241115T050318Z-001\\block\\contracts\\verify.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/verify.sol",
+    "exportedSymbols": {
+      "Verify": [
+        474
+      ]
+    },
+    "id": 475,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 435,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "33:32:2"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 474,
+        "linearizedBaseContracts": [
+          474
+        ],
+        "name": "Verify",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "Verify.Document",
+            "id": 444,
+            "members": [
+              {
+                "constant": false,
+                "id": 437,
+                "name": "fileHash",
+                "nodeType": "VariableDeclaration",
+                "scope": 444,
+                "src": "172:15:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 436,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "172:6:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 439,
+                "name": "fileName",
+                "nodeType": "VariableDeclaration",
+                "scope": 444,
+                "src": "198:15:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 438,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "198:6:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 441,
+                "name": "uploader",
+                "nodeType": "VariableDeclaration",
+                "scope": 444,
+                "src": "224:16:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 440,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "224:7:2",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 443,
+                "name": "isVerified",
+                "nodeType": "VariableDeclaration",
+                "scope": 444,
+                "src": "251:15:2",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 442,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "251:4:2",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Document",
+            "nodeType": "StructDefinition",
+            "scope": 474,
+            "src": "145:129:2",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 448,
+            "name": "documents",
+            "nodeType": "VariableDeclaration",
+            "scope": 474,
+            "src": "282:44:2",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_Document_$444_storage_$",
+              "typeString": "mapping(string => struct Verify.Document)"
+            },
+            "typeName": {
+              "id": 447,
+              "keyType": {
+                "id": 445,
+                "name": "string",
+                "nodeType": "ElementaryTypeName",
+                "src": "290:6:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "282:27:2",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_Document_$444_storage_$",
+                "typeString": "mapping(string => struct Verify.Document)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 446,
+                "name": "Document",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 444,
+                "src": "300:8:2",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Document_$444_storage_ptr",
+                  "typeString": "struct Verify.Document"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 472,
+              "nodeType": "Block",
+              "src": "429:147:2",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "commonType": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "id": 461,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "baseExpression": {
+                              "argumentTypes": null,
+                              "id": 454,
+                              "name": "documents",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 448,
+                              "src": "448:9:2",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_Document_$444_storage_$",
+                                "typeString": "mapping(string memory => struct Verify.Document storage ref)"
+                              }
+                            },
+                            "id": 456,
+                            "indexExpression": {
+                              "argumentTypes": null,
+                              "id": 455,
+                              "name": "_fileHash",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 450,
+                              "src": "458:9:2",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_string_memory_ptr",
+                                "typeString": "string memory"
+                              }
+                            },
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "nodeType": "IndexAccess",
+                            "src": "448:20:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_Document_$444_storage",
+                              "typeString": "struct Verify.Document storage ref"
+                            }
+                          },
+                          "id": 457,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "uploader",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 441,
+                          "src": "448:29:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "!=",
+                        "rightExpression": {
+                          "argumentTypes": null,
+                          "arguments": [
+                            {
+                              "argumentTypes": null,
+                              "hexValue": "30",
+                              "id": 459,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "kind": "number",
+                              "lValueRequested": false,
+                              "nodeType": "Literal",
+                              "src": "489:1:2",
+                              "subdenomination": null,
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_rational_0_by_1",
+                                "typeString": "int_const 0"
+                              },
+                              "value": "0"
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_rational_0_by_1",
+                                "typeString": "int_const 0"
+                              }
+                            ],
+                            "id": 458,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "lValueRequested": false,
+                            "nodeType": "ElementaryTypeNameExpression",
+                            "src": "481:7:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_type$_t_address_$",
+                              "typeString": "type(address)"
+                            },
+                            "typeName": "address"
+                          },
+                          "id": 460,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "typeConversion",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "481:10:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address_payable",
+                            "typeString": "address payable"
+                          }
+                        },
+                        "src": "448:43:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "argumentTypes": null,
+                        "hexValue": "446f63756d656e7420646f6573206e6f74206578697374",
+                        "id": 462,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "493:25:2",
+                        "subdenomination": null,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_e181ff222fa53614e34494a87e4840e33f4ea8e4a1d4d8782324de01ed870194",
+                          "typeString": "literal_string \"Document does not exist\""
+                        },
+                        "value": "Document does not exist"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_e181ff222fa53614e34494a87e4840e33f4ea8e4a1d4d8782324de01ed870194",
+                          "typeString": "literal_string \"Document does not exist\""
+                        }
+                      ],
+                      "id": 453,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        492,
+                        493
+                      ],
+                      "referencedDeclaration": 493,
+                      "src": "440:7:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 463,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "440:79:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 464,
+                  "nodeType": "ExpressionStatement",
+                  "src": "440:79:2"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 470,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "baseExpression": {
+                          "argumentTypes": null,
+                          "id": 465,
+                          "name": "documents",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 448,
+                          "src": "530:9:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_string_memory_$_t_struct$_Document_$444_storage_$",
+                            "typeString": "mapping(string memory => struct Verify.Document storage ref)"
+                          }
+                        },
+                        "id": 467,
+                        "indexExpression": {
+                          "argumentTypes": null,
+                          "id": 466,
+                          "name": "_fileHash",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 450,
+                          "src": "540:9:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "530:20:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Document_$444_storage",
+                          "typeString": "struct Verify.Document storage ref"
+                        }
+                      },
+                      "id": 468,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "isVerified",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 443,
+                      "src": "530:31:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "hexValue": "74727565",
+                      "id": 469,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "564:4:2",
+                      "subdenomination": null,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "true"
+                    },
+                    "src": "530:38:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 471,
+                  "nodeType": "ExpressionStatement",
+                  "src": "530:38:2"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 473,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "verifyDocument",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 451,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 450,
+                  "name": "_fileHash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 473,
+                  "src": "397:23:2",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 449,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "397:6:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "396:25:2"
+            },
+            "returnParameters": {
+              "id": 452,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "429:0:2"
+            },
+            "scope": 474,
+            "src": "373:203:2",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 475,
+        "src": "69:510:2"
+      }
+    ],
+    "src": "33:548:2"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "project:/contracts/verify.sol",
+      "exportedSymbols": {
+        "Verify": [
+          474
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            ">=",
+            "0.4",
+            ".22",
+            "<",
+            "0.9",
+            ".0"
+          ]
+        },
+        "id": 435,
+        "name": "PragmaDirective",
+        "src": "33:32:2"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            474
+          ],
+          "name": "Verify",
+          "scope": 475
+        },
+        "children": [
+          {
+            "attributes": {
+              "canonicalName": "Verify.Document",
+              "name": "Document",
+              "scope": 474,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "fileHash",
+                  "scope": 444,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "string",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "string",
+                      "type": "string"
+                    },
+                    "id": 436,
+                    "name": "ElementaryTypeName",
+                    "src": "172:6:2"
+                  }
+                ],
+                "id": 437,
+                "name": "VariableDeclaration",
+                "src": "172:15:2"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "fileName",
+                  "scope": 444,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "string",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "string",
+                      "type": "string"
+                    },
+                    "id": 438,
+                    "name": "ElementaryTypeName",
+                    "src": "198:6:2"
+                  }
+                ],
+                "id": 439,
+                "name": "VariableDeclaration",
+                "src": "198:15:2"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "uploader",
+                  "scope": 444,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "address",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "stateMutability": "nonpayable",
+                      "type": "address"
+                    },
+                    "id": 440,
+                    "name": "ElementaryTypeName",
+                    "src": "224:7:2"
+                  }
+                ],
+                "id": 441,
+                "name": "VariableDeclaration",
+                "src": "224:16:2"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "isVerified",
+                  "scope": 444,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "bool",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "bool",
+                      "type": "bool"
+                    },
+                    "id": 442,
+                    "name": "ElementaryTypeName",
+                    "src": "251:4:2"
+                  }
+                ],
+                "id": 443,
+                "name": "VariableDeclaration",
+                "src": "251:15:2"
+              }
+            ],
+            "id": 444,
+            "name": "StructDefinition",
+            "src": "145:129:2"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "documents",
+              "scope": 474,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "mapping(string => struct Verify.Document)",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "type": "mapping(string => struct Verify.Document)"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "string",
+                      "type": "string"
+                    },
+                    "id": 445,
+                    "name": "ElementaryTypeName",
+                    "src": "290:6:2"
+                  },
+                  {
+                    "attributes": {
+                      "contractScope": null,
+                      "name": "Document",
+                      "referencedDeclaration": 444,
+                      "type": "struct Verify.Document"
+                    },
+                    "id": 446,
+                    "name": "UserDefinedTypeName",
+                    "src": "300:8:2"
+                  }
+                ],
+                "id": 447,
+                "name": "Mapping",
+                "src": "282:27:2"
+              }
+            ],
+            "id": 448,
+            "name": "VariableDeclaration",
+            "src": "282:44:2"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "verifyDocument",
+              "scope": 474,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_fileHash",
+                      "scope": 473,
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "type": "string",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string"
+                        },
+                        "id": 449,
+                        "name": "ElementaryTypeName",
+                        "src": "397:6:2"
+                      }
+                    ],
+                    "id": 450,
+                    "name": "VariableDeclaration",
+                    "src": "397:23:2"
+                  }
+                ],
+                "id": 451,
+                "name": "ParameterList",
+                "src": "396:25:2"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 452,
+                "name": "ParameterList",
+                "src": "429:0:2"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "tuple()",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bool",
+                                  "typeString": "bool"
+                                },
+                                {
+                                  "typeIdentifier": "t_stringliteral_e181ff222fa53614e34494a87e4840e33f4ea8e4a1d4d8782324de01ed870194",
+                                  "typeString": "literal_string \"Document does not exist\""
+                                }
+                              ],
+                              "overloadedDeclarations": [
+                                492,
+                                493
+                              ],
+                              "referencedDeclaration": 493,
+                              "type": "function (bool,string memory) pure",
+                              "value": "require"
+                            },
+                            "id": 453,
+                            "name": "Identifier",
+                            "src": "440:7:2"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "commonType": {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              },
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "operator": "!=",
+                              "type": "bool"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "uploader",
+                                  "referencedDeclaration": 441,
+                                  "type": "address"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "isConstant": false,
+                                      "isLValue": true,
+                                      "isPure": false,
+                                      "lValueRequested": false,
+                                      "type": "struct Verify.Document storage ref"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 448,
+                                          "type": "mapping(string memory => struct Verify.Document storage ref)",
+                                          "value": "documents"
+                                        },
+                                        "id": 454,
+                                        "name": "Identifier",
+                                        "src": "448:9:2"
+                                      },
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 450,
+                                          "type": "string memory",
+                                          "value": "_fileHash"
+                                        },
+                                        "id": 455,
+                                        "name": "Identifier",
+                                        "src": "458:9:2"
+                                      }
+                                    ],
+                                    "id": 456,
+                                    "name": "IndexAccess",
+                                    "src": "448:20:2"
+                                  }
+                                ],
+                                "id": 457,
+                                "name": "MemberAccess",
+                                "src": "448:29:2"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "isStructConstructorCall": false,
+                                  "lValueRequested": false,
+                                  "names": [
+                                    null
+                                  ],
+                                  "type": "address payable",
+                                  "type_conversion": true
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": [
+                                        {
+                                          "typeIdentifier": "t_rational_0_by_1",
+                                          "typeString": "int_const 0"
+                                        }
+                                      ],
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": true,
+                                      "lValueRequested": false,
+                                      "type": "type(address)",
+                                      "value": "address"
+                                    },
+                                    "id": 458,
+                                    "name": "ElementaryTypeNameExpression",
+                                    "src": "481:7:2"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "hexvalue": "30",
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": true,
+                                      "lValueRequested": false,
+                                      "subdenomination": null,
+                                      "token": "number",
+                                      "type": "int_const 0",
+                                      "value": "0"
+                                    },
+                                    "id": 459,
+                                    "name": "Literal",
+                                    "src": "489:1:2"
+                                  }
+                                ],
+                                "id": 460,
+                                "name": "FunctionCall",
+                                "src": "481:10:2"
+                              }
+                            ],
+                            "id": 461,
+                            "name": "BinaryOperation",
+                            "src": "448:43:2"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "446f63756d656e7420646f6573206e6f74206578697374",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "string",
+                              "type": "literal_string \"Document does not exist\"",
+                              "value": "Document does not exist"
+                            },
+                            "id": 462,
+                            "name": "Literal",
+                            "src": "493:25:2"
+                          }
+                        ],
+                        "id": 463,
+                        "name": "FunctionCall",
+                        "src": "440:79:2"
+                      }
+                    ],
+                    "id": 464,
+                    "name": "ExpressionStatement",
+                    "src": "440:79:2"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "bool"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "member_name": "isVerified",
+                              "referencedDeclaration": 443,
+                              "type": "bool"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "type": "struct Verify.Document storage ref"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 448,
+                                      "type": "mapping(string memory => struct Verify.Document storage ref)",
+                                      "value": "documents"
+                                    },
+                                    "id": 465,
+                                    "name": "Identifier",
+                                    "src": "530:9:2"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 450,
+                                      "type": "string memory",
+                                      "value": "_fileHash"
+                                    },
+                                    "id": 466,
+                                    "name": "Identifier",
+                                    "src": "540:9:2"
+                                  }
+                                ],
+                                "id": 467,
+                                "name": "IndexAccess",
+                                "src": "530:20:2"
+                              }
+                            ],
+                            "id": 468,
+                            "name": "MemberAccess",
+                            "src": "530:31:2"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "hexvalue": "74727565",
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "lValueRequested": false,
+                              "subdenomination": null,
+                              "token": "bool",
+                              "type": "bool",
+                              "value": "true"
+                            },
+                            "id": 469,
+                            "name": "Literal",
+                            "src": "564:4:2"
+                          }
+                        ],
+                        "id": 470,
+                        "name": "Assignment",
+                        "src": "530:38:2"
+                      }
+                    ],
+                    "id": 471,
+                    "name": "ExpressionStatement",
+                    "src": "530:38:2"
+                  }
+                ],
+                "id": 472,
+                "name": "Block",
+                "src": "429:147:2"
+              }
+            ],
+            "id": 473,
+            "name": "FunctionDefinition",
+            "src": "373:203:2"
+          }
+        ],
+        "id": 474,
+        "name": "ContractDefinition",
+        "src": "69:510:2"
+      }
+    ],
+    "id": 475,
+    "name": "SourceUnit",
+    "src": "33:548:2"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.16",
+  "updatedAt": "2024-11-15T16:59:09.708Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

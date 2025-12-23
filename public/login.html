@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>eVault - Login</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  
+  <style>
+    body {
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .login-container {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      width: 900px;
+      max-width: 100%;
+    }
+    
+    .login-row {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    
+    .login-image {
+      background-image: url('assets/images/about.jpg');
+      background-size: cover;
+      background-position: center;
+      flex: 1;
+      min-height: 500px;
+      position: relative;
+    }
+    
+    .login-image::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(58, 123, 213, 0.8), rgba(0, 210, 255, 0.8));
+    }
+    
+    .login-image-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      width: 80%;
+    }
+    
+    .login-form {
+      flex: 1;
+      padding: 50px;
+      min-width: 320px;
+    }
+    
+    .form-control {
+      background-color: #f8f9fa;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 15px;
+      margin-bottom: 15px;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(45deg, #3a7bd5, #00d2ff);
+      border: none;
+      border-radius: 8px;
+      padding: 12px;
+      font-weight: 600;
+      width: 100%;
+      transition: all 0.3s;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(58, 123, 213, 0.4);
+    }
+    
+    .toggle-form {
+      text-align: center;
+      margin-top: 20px;
+    }
+    
+    .form-toggle-btn {
+      background: none;
+      border: none;
+      color: #3a7bd5;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    
+    .social-login {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+    }
+    
+    .social-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 10px;
+      color: white;
+      transition: all 0.3s;
+    }
+    
+    .social-btn:hover {
+      transform: translateY(-3px);
+    }
+    
+    .facebook {
+      background-color: #3b5998;
+    }
+    
+    .google {
+      background-color: #db4437;
+    }
+    
+    .linkedin {
+      background-color: #0077b5;
+    }
+    
+    .form-check-input {
+      width: 18px;
+      height: 18px;
+    }
+    
+    .forgot-password {
+      text-align: right;
+    }
+    
+    .alert {
+      display: none;
+      margin-bottom: 15px;
+    }
+    
+    /* Success alert */
+    .alert-success {
+      background-color: #d4edda;
+      color: #155724;
+      border-color: #c3e6cb;
+    }
+    
+    /* Dark mode */
+    .dark-mode {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    }
+    
+    .dark-mode .login-container {
+      background-color: #222;
+      color: #fff;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+    
+    .dark-mode .form-control {
+      background-color: #333;
+      color: #fff;
+      border: 1px solid #444;
+    }
+    
+    .dark-mode .text-muted {
+      color: #bbb !important;
+    }
+    
+    .theme-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 1.2rem;
+      color: #fff;
+      cursor: pointer;
+      z-index: 100;
+    }
+    
+    /* Loading spinner */
+    .spinner-container {
+      display: none;
+      text-align: center;
+      margin-top: 10px;
+    }
+    
+    .spinner-border {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+</head>
+<body>
+  <div class="theme-toggle" id="themeToggle">
+    <i class="fas fa-moon"></i>
+  </div>
+
+  <div class="container">
+    <div class="login-container">
+      <div class="login-row">
+        <div class="login-image">
+          <div class="login-image-content">
+            <i class="fa-solid fa-dragon fa-3x mb-4"></i>
+            <h2><span>e</span>Vault</h2>
+            <p class="mb-4">Secure your important documents with blockchain technology</p>
+            <div class="d-flex justify-content-center">
+              <div class="me-3">
+                <i class="fas fa-shield-alt fa-2x mb-2"></i>
+                <p class="small">Encrypted Storage</p>
+              </div>
+              <div class="me-3">
+                <i class="fas fa-check-circle fa-2x mb-2"></i>
+                <p class="small">Verified Authenticity</p>
+              </div>
+              <div>
+                <i class="fas fa-lock fa-2x mb-2"></i>
+                <p class="small">Total Security</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="login-form">
+          <!-- Login Form -->
+          <div id="loginForm">
+            <h3 class="mb-4">Welcome Back!</h3>
+            <p class="text-muted mb-4">Please login to your account</p>
+            
+            <div class="alert alert-danger" id="loginAlert"></div>
+            <div class="alert alert-success" id="loginSuccess"></div>
+            
+            <form id="loginFormElement">
+              <div class="mb-3">
+                <input type="email" class="form-control" id="loginEmail" placeholder="Email Address" required>
+              </div>
+              <div class="mb-3">
+                <input type="password" class="form-control" id="loginPassword" placeholder="Password" required>
+              </div>
+              <div class="d-flex justify-content-between mb-4">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="rememberMe">
+                  <label class="form-check-label text-muted" for="rememberMe">
+                    Remember me
+                  </label>
+                </div>
+                <a href="#" class="text-primary">Forgot password?</a>
+              </div>
+              <button type="submit" class="btn btn-primary" id="loginButton">Login</button>
+              <div class="spinner-container" id="loginSpinner">
+                <div class="spinner-border text-primary" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </div>
+            </form>
+            
+            <div class="social-login">
+              <a href="#" class="social-btn facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-btn google"><i class="fab fa-google"></i></a>
+              <a href="#" class="social-btn linkedin"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            
+            <div class="toggle-form">
+              <p class="text-muted">Don't have an account? <button class="form-toggle-btn" id="showRegisterForm">Register</button></p>
+            </div>
+          </div>
+          
+          <!-- Register Form -->
+          <div id="registerForm" style="display: none;">
+            <h3 class="mb-4">Create Account</h3>
+            <p class="text-muted mb-4">Join eVault and secure your documents</p>
+            
+            <div class="alert alert-danger" id="registerAlert"></div>
+            <div class="alert alert-success" id="registerSuccess"></div>
+            
+            <form id="registerFormElement">
+              <div class="mb-3">
+                <input type="text" class="form-control" id="registerUsername" placeholder="Full Name" required>
+              </div>
+              <div class="mb-3">
+                <input type="email" class="form-control" id="registerEmail" placeholder="Email Address" required>
+              </div>
+              <div class="mb-3">
+                <input type="password" class="form-control" id="registerPassword" placeholder="Password" required>
+              </div>
+              <div class="mb-3">
+                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password" required>
+              </div>
+              <div class="form-check mb-4">
+                <input class="form-check-input" type="checkbox" id="termsAgree" required>
+                <label class="form-check-label text-muted" for="termsAgree">
+                  I agree to the <a href="#" class="text-primary">Terms & Conditions</a>
+                </label>
+              </div>
+              <button type="submit" class="btn btn-primary" id="registerButton">Register</button>
+              <div class="spinner-container" id="registerSpinner">
+                <div class="spinner-border text-primary" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </div>
+            </form>
+            
+            <div class="toggle-form">
+              <p class="text-muted">Already have an account? <button class="form-toggle-btn" id="showLoginForm">Login</button></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // API URL Configuration
+      const API_URL = 'http://localhost:3000/api'; // Change this to your actual API URL in production
+      
+      // Form toggle
+      const loginForm = document.getElementById('loginForm');
+      const registerForm = document.getElementById('registerForm');
+      const showRegisterForm = document.getElementById('showRegisterForm');
+      const showLoginForm = document.getElementById('showLoginForm');
+      
+      showRegisterForm.addEventListener('click', function() {
+        loginForm.style.display = 'none';
+        registerForm.style.display = 'block';
+      });
+      
+      showLoginForm.addEventListener('click', function() {
+        registerForm.style.display = 'none';
+        loginForm.style.display = 'block';
+      });
+      
+      // Dark mode toggle
+      const themeToggle = document.getElementById('themeToggle');
+      const body = document.body;
+      const toggleIcon = themeToggle.querySelector('i');
+      
+      // Check for saved theme preference
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        body.classList.add('dark-mode');
+        toggleIcon.classList.remove('fa-moon');
+        toggleIcon.classList.add('fa-sun');
+      }
+      
+      themeToggle.addEventListener('click', function() {
+        body.classList.toggle('dark-mode');
+        
+        if (body.classList.contains('dark-mode')) {
+          toggleIcon.classList.remove('fa-moon');
+          toggleIcon.classList.add('fa-sun');
+          localStorage.setItem('theme', 'dark');
+        } else {
+          toggleIcon.classList.remove('fa-sun');
+          toggleIcon.classList.add('fa-moon');
+          localStorage.setItem('theme', 'light');
+        }
+      });
+      
+      // Elements
+      const loginButton = document.getElementById('loginButton');
+      const loginSpinner = document.getElementById('loginSpinner');
+      const loginAlert = document.getElementById('loginAlert');
+      const loginSuccess = document.getElementById('loginSuccess');
+      
+      const registerButton = document.getElementById('registerButton');
+      const registerSpinner = document.getElementById('registerSpinner');
+      const registerAlert = document.getElementById('registerAlert');
+      const registerSuccess = document.getElementById('registerSuccess');
+      
+      // Helper functions
+      function showLoading(button, spinner) {
+        button.disabled = true;
+        spinner.style.display = 'block';
+      }
+      
+      function hideLoading(button, spinner) {
+        button.disabled = false;
+        spinner.style.display = 'none';
+      }
+      
+      function showAlert(alert, message) {
+        alert.textContent = message;
+        alert.style.display = 'block';
+        
+        // Auto-hide after 5 seconds
+        setTimeout(() => {
+          alert.style.display = 'none';
+        }, 5000);
+      }
+      
+      function showSuccess(success, message) {
+        success.textContent = message;
+        success.style.display = 'block';
+        
+        // Auto-hide after 5 seconds
+        setTimeout(() => {
+          success.style.display = 'none';
+        }, 5000);
+      }
+      
+      function saveAuthData(token, user) {
+        localStorage.setItem('token', token);
+        localStorage.setItem('user', JSON.stringify(user));
+      }
+      
+      // Check if user is already logged in
+      const token = localStorage.getItem('token');
+      if (token) {
+        // Redirect to dashboard if token exists
+        window.location.href = 'dashboard.html';
+      }
+      
+      // Login form submission
+      document.getElementById('loginFormElement').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const email = document.getElementById('loginEmail').value;
+        const password = document.getElementById('loginPassword').value;
+        const rememberMe = document.getElementById('rememberMe').checked;
+        
+        // Clear previous alerts
+        loginAlert.style.display = 'none';
+        loginSuccess.style.display = 'none';
+        
+        // Show loading state
+        showLoading(loginButton, loginSpinner);
+        
+        try {
+          const response = await fetch(`${API_URL}/login`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email, password })
+          });
+          
+          const data = await response.json();
+          
+          if (data.success) {
+            // Show success message
+            showSuccess(loginSuccess, 'Login successful! Redirecting to dashboard...');
+            
+            // Save auth data
+            saveAuthData(data.token, data.user);
+            
+            // Redirect to dashboard after a short delay
+            setTimeout(() => {
+              window.location.href = 'dashboard.html';
+            }, 1500);
+          } else {
+            showAlert(loginAlert, data.message || 'Login failed. Please check your credentials.');
+          }
+        } catch (error) {
+          console.error('Login error:', error);
+          showAlert(loginAlert, 'Server error. Please try again later.');
+        } finally {
+          // Hide loading state
+          hideLoading(loginButton, loginSpinner);
+        }
+      });
+      
+      // Register form submission
+      document.getElementById('registerFormElement').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const username = document.getElementById('registerUsername').value;
+        const email = document.getElementById('registerEmail').value;
+        const password = document.getElementById('registerPassword').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+        const termsAgreed = document.getElementById('termsAgree').checked;
+        
+        // Clear previous alerts
+        registerAlert.style.display = 'none';
+        registerSuccess.style.display = 'none';
+        
+        // Validate passwords match
+        if (password !== confirmPassword) {
+          showAlert(registerAlert, 'Passwords do not match');
+          return;
+        }
+        
+        // Validate terms agreement
+        if (!termsAgreed) {
+          showAlert(registerAlert, 'You must agree to the Terms & Conditions');
+          return;
+        }
+        
+        // Show loading state
+        showLoading(registerButton, registerSpinner);
+        
+        try {
+          const response = await fetch(`${API_URL}/register`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ username, email, password })
+          });
+          
+          const data = await response.json();
+          
+          if (data.success) {
+            // Show success message
+            showSuccess(registerSuccess, 'Registration successful! Redirecting to dashboard...');
+            
+            // Save auth data
+            saveAuthData(data.token, data.user);
+            
+            // Redirect to dashboard after a short delay
+            setTimeout(() => {
+              window.location.href = 'dashboard.html';
+            }, 1500);
+          } else {
+            showAlert(registerAlert, data.message || 'Registration failed. Please try again.');
+          }
+        } catch (error) {
+          console.error('Registration error:', error);
+          showAlert(registerAlert, 'Server error. Please try again later.');
+        } finally {
+          // Hide loading state
+          hideLoading(registerButton, registerSpinner);
+        }
+      });
+      
+      // Social login handlers (placeholders - would need to be implemented with OAuth providers)
+      const socialButtons = document.querySelectorAll('.social-btn');
+      socialButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          e.preventDefault();
+          alert('Social login integration coming soon!');
+        });
+      });
+    });
+  </script>
+  <!-- Inside the existing script tag, replace the login and register functionality with this code -->
+<script type="module">
+  import { signUp, signIn, signOut, getCurrentUser } from './js/supabase.js';
+
+  document.addEventListener('DOMContentLoaded', async function() {
+    // Form toggle functionality remains the same
+    const loginForm = document.getElementById('loginForm');
+    const registerForm = document.getElementById('registerForm');
+    const showRegisterForm = document.getElementById('showRegisterForm');
+    const showLoginForm = document.getElementById('showLoginForm');
+    
+    showRegisterForm.addEventListener('click', function() {
+      loginForm.style.display = 'none';
+      registerForm.style.display = 'block';
+    });
+    
+    showLoginForm.addEventListener('click', function() {
+      registerForm.style.display = 'none';
+      loginForm.style.display = 'block';
+    });
+    
+    // Dark mode toggle remains the same
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+    const toggleIcon = themeToggle.querySelector('i');
+    
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      body.classList.add('dark-mode');
+      toggleIcon.classList.remove('fa-moon');
+      toggleIcon.classList.add('fa-sun');
+    }
+    
+    themeToggle.addEventListener('click', function() {
+      body.classList.toggle('dark-mode');
+      
+      if (body.classList.contains('dark-mode')) {
+        toggleIcon.classList.remove('fa-moon');
+        toggleIcon.classList.add('fa-sun');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        toggleIcon.classList.remove('fa-sun');
+        toggleIcon.classList.add('fa-moon');
+        localStorage.setItem('theme', 'light');
+      }
+    });
+    
+    // Elements
+    const loginButton = document.getElementById('loginButton');
+    const loginSpinner = document.getElementById('loginSpinner');
+    const loginAlert = document.getElementById('loginAlert');
+    const loginSuccess = document.getElementById('loginSuccess');
+    
+    const registerButton = document.getElementById('registerButton');
+    const registerSpinner = document.getElementById('registerSpinner');
+    const registerAlert = document.getElementById('registerAlert');
+    const registerSuccess = document.getElementById('registerSuccess');
+    
+    // Helper functions remain the same
+    function showLoading(button, spinner) {
+      button.disabled = true;
+      spinner.style.display = 'block';
+    }
+    
+    function hideLoading(button, spinner) {
+      button.disabled = false;
+      spinner.style.display = 'none';
+    }
+    
+    function showAlert(alert, message) {
+      alert.textContent = message;
+      alert.style.display = 'block';
+      
+      setTimeout(() => {
+        alert.style.display = 'none';
+      }, 5000);
+    }
+    
+    function showSuccess(success, message) {
+      success.textContent = message;
+      success.style.display = 'block';
+      
+      setTimeout(() => {
+        success.style.display = 'none';
+      }, 5000);
+    }
+    
+    // Check if user is already logged in
+    try {
+      const user = await getCurrentUser();
+      if (user) {
+        window.location.href = 'dashboard.html';
+      }
+    } catch (error) {
+      console.error('Error checking authentication status:', error);
+    }
+    
+    // Login form submission with Supabase
+    document.getElementById('loginFormElement').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const email = document.getElementById('loginEmail').value;
+      const password = document.getElementById('loginPassword').value;
+      
+      // Clear previous alerts
+      loginAlert.style.display = 'none';
+      loginSuccess.style.display = 'none';
+      
+      // Show loading state
+      showLoading(loginButton, loginSpinner);
+      
+      try {
+        const data = await signIn(email, password);
+        
+        // Show success message
+        showSuccess(loginSuccess, 'Login successful! Redirecting to dashboard...');
+        
+        // Redirect to dashboard after a short delay
+        setTimeout(() => {
+          window.location.href = 'dashboard.html';
+        }, 1500);
+      } catch (error) {
+        console.error('Login error:', error);
+        showAlert(loginAlert, error.message || 'Login failed. Please check your credentials.');
+      } finally {
+        // Hide loading state
+        hideLoading(loginButton, loginSpinner);
+      }
+    });
+    
+    // Register form submission with Supabase
+    document.getElementById('registerFormElement').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const username = document.getElementById('registerUsername').value;
+      const email = document.getElementById('registerEmail').value;
+      const password = document.getElementById('registerPassword').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+      const termsAgreed = document.getElementById('termsAgree').checked;
+      
+      // Clear previous alerts
+      registerAlert.style.display = 'none';
+      registerSuccess.style.display = 'none';
+      
+      // Validate passwords match
+      if (password !== confirmPassword) {
+        showAlert(registerAlert, 'Passwords do not match');
+        return;
+      }
+      
+      // Validate terms agreement
+      if (!termsAgreed) {
+        showAlert(registerAlert, 'You must agree to the Terms & Conditions');
+        return;
+      }
+      
+      // Show loading state
+      showLoading(registerButton, registerSpinner);
+      
+      try {
+        const data = await signUp(email, password, username);
+        
+        // Show success message
+        showSuccess(registerSuccess, 'Registration successful! Please check your email to confirm your account.');
+        
+        // Switch to login form after successful registration
+        setTimeout(() => {
+          registerForm.style.display = 'none';
+          loginForm.style.display = 'block';
+        }, 3000);
+      } catch (error) {
+        console.error('Registration error:', error);
+        showAlert(registerAlert, error.message || 'Registration failed. Please try again.');
+      } finally {
+        // Hide loading state
+        hideLoading(registerButton, registerSpinner);
+      }
+    });
+    
+    // Social login handlers remain placeholder
+    const socialButtons = document.querySelectorAll('.social-btn');
+    socialButtons.forEach(button => {
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
+        alert('Social login integration coming soon!');
+      });
+    });
+  });
+</script>
+</body>
+</html>

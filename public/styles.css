@@ -1,0 +1,129 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+h1, h2, h3 {
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+p {
+    margin: 15px 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    background-color: #444;
+    padding: 10px 0;
+}
+
+.navbar li {
+    list-style: none;
+}
+
+.navbar li a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    background-color: #555;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar li a:hover {
+    background-color: #777;
+}
+
+main {
+    background-color: white;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.feature {
+    background-color: #eee;
+    margin: 10px;
+    padding: 15px;
+    border-radius: 5px;
+    width: 45%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+}
+
+h3 {
+    color: #333;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.navbar .btn {
+    font-size: 16px; /* Adjust button font size */
+    padding: 8px 15px; /* Adjust padding for buttons */
+}
+
+.navbar .btn-primary {
+    background-color: #007bff; /* Primary color */
+    border-color: #007bff; /* Border color */
+}
+
+.navbar .btn-outline-primary {
+    color: #007bff; /* Outline text color */
+    border-color: #007bff; /* Outline border color */
+}
